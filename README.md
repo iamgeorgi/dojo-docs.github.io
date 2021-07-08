@@ -30,29 +30,44 @@
         ```
     - Example events
         - Basic click event
-        ```js
-        const hideButton = dom.byId("hideDiv");
-        on(hideButton, "click", function (event) {
-            div.style.display = "none";
-        })
-        ```
+            ```js
+            const hideButton = dom.byId("hideDiv");
+            on(hideButton, "click", function (event) {
+                div.style.display = "none";
+            })
+            ```
         - Attach one event to multiple nodes inside parent element
-        ```js
-        const myDivElement = dom.byId("myDiv1");
-        on(myDivElement, on.selector(".clickMe", "click"), function (e) {
-            alert(e.target.id);
-        })
+            ```js
+            const myDivElement = dom.byId("myDiv1");
+            on(myDivElement, on.selector(".clickMe", "click"), function (e) {
+                alert(e.target.id);
+            })
+            
+            on(myDiv1Element, ".clickMe:click", function (e) {
+                alert(e.target.id);
+            }) // another way to attach event on multiple elements
+            
+            // <div id="myDiv">
+                //<button id="button1" class="clickMe">Click me1</button>
+                //<button id="button2" class="clickMe">Click me2</button>
+                //<button id="button3" class="clickMe">Click me3</button>
+            //</div>
+            ```
+        - Execute the event only once
+            ```js
+            on.once(div, "mouseenter", function (event) {
+                domStyle.set(div, "width", "2500px");
+                div.style.background = "yellow";
+            })
+            ```
+        - Execute the event, then remove it
+            ```js
+            const mouseEnterHandler = on(div, "mouseenter", function (event) {
+                domStyle.set(div, "width", "2500px");
+                mouseEnterHandler.remove();
+            })
+            ```
         
-        on(myDiv1Element, ".clickMe:click", function (e) {
-            alert(e.target.id);
-        }) // another way to attach event on multiple elements
-        
-        // <div id="myDiv">
-            //<button id="button1" class="clickMe">Click me1</button>
-            //<button id="button2" class="clickMe">Click me2</button>
-            //<button id="button3" class="clickMe">Click me3</button>
-        //</div>
-        ```
 - Dojo modules
     - "dojo/dom-style"
         ```js
