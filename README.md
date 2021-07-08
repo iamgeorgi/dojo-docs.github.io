@@ -86,14 +86,41 @@
             })
             ```
         
-- Dojo modules
-    - "dojo/dom-style"
-        ```js
-            const domStyleDiv = dom.byId("domStyle");
-            domStyle.set(domStyleDiv, "width", "2500px"); // sets the width of node to 2500px
-            domStyle.get(domStyleDiv, "width"); // gets the width of node
-            
-            const styles =domStyle.getComputedStyle(domStyleDiv); // takes all the styles of the element
-            console.log(styles.width) // get the width of the element
-        ```
+### _Dojo modules_
+- "dojo/dom-style"
+    ```js
+        const domStyleDiv = dom.byId("domStyle");
+        domStyle.set(domStyleDiv, "width", "2500px"); // sets the width of node to 2500px
+        domStyle.get(domStyleDiv, "width"); // gets the width of node
+        
+        const styles =domStyle.getComputedStyle(domStyleDiv); // takes all the styles of the element
+        console.log(styles.width) // get the width of the element
+    ```
+- "dojo/topic"
+    ```js
+    const btn1 = dom.byId("one");
+    topic.subscribe("test/topic", function (a, b) {
+        alert(a + b);
+    })
+    on(btn1, "click", function () {
+        topic.publish("test/topic", "Testing", "And Testing again")
+        // the second param also can be array ot an object
+    }) // subscribes on event called test/topic
+    ```
+- "dojo/dom-construct"
+    ```js
+    const parent = dom.byId("list");
+    const child = dom.byId("three");
+    const fourthChild = dom.byId("four");
+    const button = dom.byId("move");
+
+    domConstruct.place(child, parent, "first"); // moves the element to the top
+    domConstruct.place(child, fourthChild, "after"); // moves the element after the specified element
+    domConstruct.place(child, parent, "3"); // moves the element at the fourth position inside the parent element, counts from zero
+    domConstruct.place(child, fourthChild, "replace"); // removes fourthChild and place the child element instead
+    domConstruct.place(child, list, "only"); // removes all child elements of list and the child instead
+    domConstruct.empty(parent); // empty the content from the specified element(child nodes ot text)
+    query(".list-items").forEach(domConstruct.empty); // empty the content from all elements with class list-items
+    domConstruct.destroy(child) // removes the node completely
+    ```
     
