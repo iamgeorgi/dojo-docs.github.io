@@ -47,10 +47,20 @@
             alert(e.target.id);
         }) // another way to attach event on multiple elements
         
-        <!-- <div id="myDiv">
-            <button id="button1" class="clickMe">Click me1</button>
-            <button id="button2" class="clickMe">Click me2</button>
-            <button id="button3" class="clickMe">Click me3</button>
-        </div> -->
+        // <div id="myDiv">
+            //<button id="button1" class="clickMe">Click me1</button>
+            //<button id="button2" class="clickMe">Click me2</button>
+            //<button id="button3" class="clickMe">Click me3</button>
+        //</div>
+        ```
+- Dojo modules
+    - "dojo/dom-style"
+        ```js
+            const domStyleDiv = dom.byId("domStyle");
+            domStyle.set(domStyleDiv, "width", "2500px"); // sets the width of node to 2500px
+            domStyle.get(domStyleDiv, "width"); // gets the width of node
+            
+            const styles =domStyle.getComputedStyle(domStyleDiv); // takes all the styles of the element
+            console.log(styles.width) // get the width of the element
         ```
     
