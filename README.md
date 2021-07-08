@@ -67,6 +67,24 @@
                 mouseEnterHandler.remove();
             })
             ```
+        - Pause the event
+            ```js
+            const enableButton = dom.byId('enable');
+            const disableButton = dom.byId('disable');
+            const clickBtn = dom.byId('clickMe');
+    
+            const buttonHandler = on.pausable(clickBtn, "click", function () {
+                alert("I am clickable");
+            })
+    
+            on(disableButton, "click", function () {
+                buttonHandler.pause()
+            })
+    
+            on(enableButton, "click", function () {
+                buttonHandler.resume()
+            })
+            ```
         
 - Dojo modules
     - "dojo/dom-style"
