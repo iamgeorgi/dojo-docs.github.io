@@ -47,10 +47,10 @@
             alert(e.target.id);
         }) // another way to attach event on multiple elements
         
-        // <div id="myDiv">
+        <!-- <div id="myDiv">
             //<button id="button1" class="clickMe">Click me1</button>
             //<button id="button2" class="clickMe">Click me2</button>
             //<button id="button3" class="clickMe">Click me3</button>
-        //</div>
+        //</div> -->
         ```
     
