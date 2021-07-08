@@ -123,4 +123,15 @@
     query(".list-items").forEach(domConstruct.empty); // empty the content from all elements with class list-items
     domConstruct.destroy(child) // removes the node completely
     ```
+    - "dojo/request"
+    ```js
+    request.get("https://jsonplaceholder.typicode.com/todos/1", {handleAs: "json"}).then(
+        function (response) {
+            testDiv.innerHTML = response;
+        },
+        function (err) {
+            testDiv.innerHTML = err;
+        },
+    ) // arguments: url, additional options
+    ```
     
