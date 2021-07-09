@@ -1,4 +1,5 @@
-Dojo new features
+# New features
+
 | Plugin | README |
 | ------ | ------ |
 | dojo.connect | dojo.on // both are the same |
